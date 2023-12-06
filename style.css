@@ -88,6 +88,8 @@
     cursor: pointer !important;
 }
 form select{
-    padding: 10px;
-    width: 50%;
+    padding: 15px 10px;
+    width: 40%;
+    border: 1px solid #97C84A;
+    border-radius: 5px;
 }
