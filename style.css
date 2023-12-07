@@ -146,7 +146,9 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+input:active,
+select:active {
     border: 1px solid #0D6DBB;
 }
 
@@ -163,8 +165,12 @@ select:focus {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
 }
-
+.address span:hover {
+    border-color: #0D6DBB;
+}
 label {
     color: #0D6DBB;
 }
@@ -183,6 +189,10 @@ li {
 
 .picture {
     width: 130px;
+}
+
+.picture span img{
+    width: 100%;
 }
 button{
     width: 100%;
@@ -208,6 +218,7 @@ input::placeholder ,select::placeholder{
     margin: 0 auto;
     margin-top: 10px;
 }
+
 
 
 @media screen and (max-width:768px) {
