@@ -162,14 +162,26 @@
             </form>
 
             <form id="downloadIDCardForm" style="display: none;">
-                <div class="input">
+                <div class="input card-item">
                     <div class="id-card">
                         <label for="downloadCard">CNIC (which provided during form submition)</label>
                         <input type="number" id="downloadCard" placeholder="CNIC (Which provided during submition)">
                         <button onclick="downloadIDCard(event)">SUBMIT</button>
                     </div>
 
-                    <div class="idCard" id="idCard"></div>
+                    <div class="idCard" id="idCard">
+                        <div class="clip-box">
+
+                        </div>
+                        <img src="./img/logo.png" alt="" class="logo">
+                        <img src="./img/download.png" alt="" id="studentImg">
+                        <p id="studentName">Nadeem Hakeem</p>
+                        <p id="selectedCourse">Web & Mobile Application</p>
+                        <div class="clip-bottom"></div>
+                        <div class="inner-btm">
+
+                        </div>
+                    </div>
                 </div>
             </form>
             <form id="resultForm" style="display: none;">
