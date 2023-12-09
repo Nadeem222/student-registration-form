@@ -5,6 +5,7 @@ function showForm(formType) {
 
     document.getElementById(`${formType}Form`).style.display = 'block';
 }
+// localStorage.clear();
 
 function triggerFileInput() {
     document.getElementById('picture').click();
@@ -32,6 +33,8 @@ function handleFileSelection(input) {
     var preview = document.getElementById('preview');
     preview.style.display = 'block';
     preview.src = URL.createObjectURL(selectedFile);
+
+    selectedImageData = URL.createObjectURL(selectedFile);
 }
 
 function isValidCNICFormat(cnic) {
@@ -45,8 +48,10 @@ function submitData(event) {
     let studentName = document.getElementById('fullName').value.toUpperCase();
     let fatherName = document.getElementById('fatherName').value.toUpperCase();
     let CNIC = document.getElementById('cnic').value;
+    let selectedCourse = document.getElementById('course').value;
+   
 
-    if (studentName === "" || fatherName === "" || CNIC === "") {
+    if (studentName === "" || fatherName === "" || CNIC === "" || selectedCourse === "") {
         alert("Please fill in all required fields");
         return;
     }
@@ -58,6 +63,8 @@ function submitData(event) {
 
     let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
+    console.log(existingUsers);
+
     var userExists = existingUsers.some(user => user.studentName === studentName && user.nic === CNIC && user.fatherName === fatherName);
 
     if (userExists) {
@@ -68,7 +75,9 @@ function submitData(event) {
     let user = {
         studentName: studentName,
         nic: CNIC,
-        fatherName: fatherName
+        fatherName: fatherName,
+        selectedCourse: selectedCourse,
+        imageData: selectedImageData
     };
 
     existingUsers.push(user);
@@ -77,9 +86,12 @@ function submitData(event) {
 
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
+    console.log(existingUsers);
+
     document.getElementById('fullName').value = '';
     document.getElementById('fatherName').value = '';
     document.getElementById('cnic').value = '';
+    document.getElementById('course').value = '';
 
     alert('Data submitted successfully!');
 }
@@ -90,21 +102,32 @@ function downloadIDCard(event) {
 
     let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
+    console.log(existingUsers);
+
     var userToDownload = existingUsers.find(user => user.nic === userIDCard);
 
     if (userToDownload) {
-        let idCardHtml = `
-        <h3>ID Card</h3>
-        <p>Name: ${userToDownload.studentName}</p>
-        <p>Father Name: ${userToDownload.fatherName}</p>
-        <p>NIC Number: ${userToDownload.nic}</p>
-    `;
-        document.getElementById("idCard").innerHTML = idCardHtml;
+        
+
+        let idCard =  document.getElementById("idCard"); 
+        document.getElementById("studentName").innerHTML = `${userToDownload.studentName}`;
+        document.getElementById("selectedCourse").innerHTML = `${userToDownload.selectedCourse}`;
+
+        idCard.style.display = 'flex';
+
+
+
+        let studentImg = document.getElementById("studentImg");
+        studentImg.style.display = 'block';
+        studentImg.src = userToDownload.imageData;
     } else {
         document.getElementById("idCard").innerHTML = "User Not Found";
     }
+
+
 }
 
 function submitForm(formType) {
     showForm('newApplication');
 }
+

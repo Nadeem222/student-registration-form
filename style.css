@@ -228,6 +228,14 @@ select::placeholder {
     margin-top: 10px;
 }
 
+/* .uper-box{
+    clip-path: polygon(25% 5%, 41% 3%, 65% 1%, 47% 6%, 35% 9%, 25% 11%, 6% 15%, 0 17%, 0 8%);
+    width: 100%;
+    height: 200px;
+    background-color: #8EC34A;
+    position: absolute;
+} */
+
 .idCard {
 
     border: 1px solid;
@@ -239,19 +247,37 @@ select::placeholder {
     justify-content: center;
     gap: 20px;
     position: relative;
+    display: none;
 }
-.logo{
-    width: 200px !important;
+.heading{
+    position: relative;
+}
+.heading::before {
+    background-color: red;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 1px;
+    
+}
+
+.logo {
+    width: 160px !important;
     border: none !important;
 }
-.idCard img{
+
+#studentImg {
     border: 5px solid #97C84A;
     width: 100px;
     height: 100px;
     border-radius: 4px;
 
 }
-.clip-bottom{
+
+.clip-bottom {
     clip-path: polygon(0 91%, 17% 100%, 45% 95%, 71% 90%, 97% 85%, 100% 100%, 31% 100%, 0 100%, 0 100%);
     width: 100%;
     position: absolute;
@@ -259,7 +285,8 @@ select::placeholder {
     bottom: 0;
     height: 280px;
 }
-.inner-btm{
+
+.inner-btm {
     clip-path: polygon(1% 100%, 16% 98%, 42% 95%, 68% 92%, 93% 88%, 100% 100%, 31% 100%, 0 100%, 0 100%);
     height: 250px;
     position: absolute;
@@ -268,6 +295,7 @@ select::placeholder {
     z-index: 1;
     background-color: #0D6DBB;
 }
+
 .clip-box {
     clip-path: polygon(50% 0%, 100% 1%, 100% 17%, 73% 17%, 51% 18%, 37% 22%, 18% 30%, 0 39%, 0 0);
     position: absolute;
