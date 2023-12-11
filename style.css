@@ -197,6 +197,9 @@ li {
 .picture span img {
     width: 100%;
     position: absolute;
+    overflow: hidden;
+    height: 100%;
+    background-size: cover;
 }
 
 button {
@@ -251,18 +254,10 @@ select::placeholder {
 }
 .heading{
     position: relative;
+    background-color: #ECEFF7;
+    padding: 10px 5px;
 }
-.heading::before {
-    background-color: red;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 1px;
-    
-}
+
 
 .logo {
     width: 160px !important;

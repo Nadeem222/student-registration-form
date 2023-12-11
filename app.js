@@ -92,6 +92,14 @@ function submitData(event) {
     document.getElementById('fatherName').value = '';
     document.getElementById('cnic').value = '';
     document.getElementById('course').value = '';
+    document.getElementById('city').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('fatherCNIC').value = '';
+    document.getElementById('dob').value = '';
+    document.getElementById('gender').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('qualification').value = '';
 
     alert('Data submitted successfully!');
 }
@@ -123,7 +131,7 @@ function downloadIDCard(event) {
     } else {
         document.getElementById("idCard").innerHTML = "User Not Found";
     }
-
+    document.getElementById('downloadCard').value = '';
 
 }
 
